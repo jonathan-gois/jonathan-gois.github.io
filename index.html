@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan Nogueira Gois</title>
+<meta name="description" content="Jonathan Nogueira Gois — Ph.D. candidate (PPGEET/UFF) and professor at CEFET-RJ, working on cell-free massive MIMO for Brasil 6G.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%A1%3C/text%3E%3C/svg%3E">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --sidebar-bg:#12283b;
+    --sidebar-bg-2:#0d1e2c;
+    --sidebar-fg:#eef1ee;
+    --sidebar-muted:#93aabb;
+    --accent:#d97b3f;
+    --accent-soft:rgba(217,123,63,.16);
+
+    --bg:#f6f3ec;
+    --surface:#ffffff;
+    --surface-2:#efece2;
+    --text:#20211c;
+    --text-muted:#6c6a5c;
+    --line:#ddd7c6;
+    --shadow:0 1px 2px rgba(30,25,10,.06);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12161b;
+      --surface:#1a2027;
+      --surface-2:#1f2630;
+      --text:#e9e7df;
+      --text-muted:#98978c;
+      --line:#2b323b;
+      --accent:#e79458;
+      --accent-soft:rgba(231,148,88,.16);
+      --shadow:0 1px 2px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12161b;
+    --surface:#1a2027;
+    --surface-2:#1f2630;
+    --text:#e9e7df;
+    --text-muted:#98978c;
+    --line:#2b323b;
+    --accent:#e79458;
+    --accent-soft:rgba(231,148,88,.16);
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Public Sans", Arial, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:500;
+    letter-spacing:-.01em;
+    text-wrap:balance;
+    color:var(--text);
+    margin:0;
+  }
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline; text-underline-offset:3px;}
+  .mono{font-family:"IBM Plex Mono", ui-monospace, monospace;}
+  ul{margin:0; padding:0;}
+  li{list-style:none;}
+
+  .page{
+    display:flex;
+    min-height:100vh;
+    align-items:flex-start;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    width:290px;
+    flex:0 0 290px;
+    min-height:100vh;
+    position:sticky;
+    top:0;
+    background:
+      radial-gradient(circle at 18px 18px, rgba(255,255,255,.06) 1.4px, transparent 1.6px) 0 0/34px 34px,
+      linear-gradient(160deg, var(--sidebar-bg), var(--sidebar-bg-2));
+    color:var(--sidebar-fg);
+    padding:2.75rem 1.75rem 2rem;
+    display:flex;
+    flex-direction:column;
+    gap:2.5rem;
+  }
+  .avatar{
+    width:104px;
+    height:104px;
+    border-radius:50%;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Fraunces", serif;
+    font-size:1.9rem;
+    font-weight:500;
+    color:var(--sidebar-bg);
+    background:
+      repeating-linear-gradient(115deg, var(--accent) 0 2px, #f0b384 2px 4px);
+    box-shadow:0 0 0 3px rgba(255,255,255,.12), 0 8px 24px rgba(0,0,0,.35);
+  }
+  .id{
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    gap:.35rem;
+  }
+  .id h1{
+    color:var(--sidebar-fg);
+    font-size:1.35rem;
+    line-height:1.25;
+  }
+  .id .role{
+    font-size:.82rem;
+    color:var(--sidebar-muted);
+    line-height:1.5;
+  }
+  .id .role strong{color:var(--sidebar-fg); font-weight:500;}
+
+  nav.sidenav ul{display:flex; flex-direction:column; gap:.15rem;}
+  nav.sidenav a{
+    display:block;
+    color:var(--sidebar-fg);
+    font-size:.82rem;
+    font-weight:600;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:.55rem .6rem;
+    border-radius:6px;
+    transition:background .15s ease, color .15s ease;
+  }
+  nav.sidenav a:hover{background:rgba(255,255,255,.08); text-decoration:none;}
+  nav.sidenav a{border-left:2px solid transparent;}
+  nav.sidenav a:hover{border-left-color:var(--accent);}
+
+  .sidebar-links{
+    margin-top:auto;
+    display:flex;
+    flex-direction:column;
+    gap:.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(255,255,255,.12);
+  }
+  .sidebar-links a{
+    font-size:.83rem;
+    color:var(--sidebar-muted);
+  }
+  .sidebar-links a:hover{color:var(--sidebar-fg);}
+
+  /* ---------- Content ---------- */
+  main.content{
+    flex:1 1 auto;
+    min-width:0;
+    padding:3.5rem clamp(1.5rem, 5vw, 5rem) 6rem;
+  }
+  .measure{max-width:680px;}
+
+  section{margin-bottom:4.5rem;}
+  section:target{scroll-margin-top:2rem;}
+
+  .kicker{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:.6rem;
+    display:block;
+  }
+
+  header.hero h2{font-size:clamp(1.7rem, 2.6vw, 2.15rem); margin-bottom:.35rem;}
+  header.hero .affil{
+    margin:.9rem 0 1.6rem;
+    font-size:.95rem;
+    color:var(--text-muted);
+    display:flex;
+    flex-direction:column;
+    gap:.15rem;
+  }
+  header.hero .affil a{color:var(--text);}
+
+  .bio p{margin:0 0 1.05em; max-width:680px;}
+  .bio p:last-child{margin-bottom:0;}
+
+  .edu-list{display:flex; flex-direction:column; gap:.9rem; margin:1.5rem 0 0; max-width:680px;}
+  .edu-list li{
+    display:grid;
+    grid-template-columns:78px 1fr;
+    gap:1rem;
+    font-size:.94rem;
+  }
+  .edu-list .yr{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.78rem;
+    color:var(--accent);
+    padding-top:.15rem;
+  }
+  .edu-list .deg{font-weight:600;}
+  .edu-list .inst{color:var(--text-muted);}
+
+  h3.section-title{
+    font-size:1.5rem;
+    margin-bottom:1.6rem;
+    display:flex;
+    align-items:baseline;
+    gap:.75rem;
+  }
+  h3.section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  .areas{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px,1fr));
+    gap:.7rem;
+    margin-bottom:2.5rem;
+  }
+  .areas li{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:.8rem .95rem;
+    font-size:.88rem;
+    box-shadow:var(--shadow);
+  }
+
+  .projects{display:flex; flex-direction:column; gap:1.1rem;}
+  .projects li{
+    padding-left:1.1rem;
+    border-left:2px solid var(--accent-soft);
+    max-width:680px;
+  }
+  .projects .p-title{font-weight:600; display:block;}
+  .projects .p-desc{color:var(--text-muted); font-size:.92rem;}
+
+  details.group{
+    border-bottom:1px solid var(--line);
+  }
+  details.group + details.group{margin-top:0;}
+  details.group summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:1rem 0;
+    font-family:"Fraunces", serif;
+    font-size:1.05rem;
+    font-weight:500;
+  }
+  details.group summary::-webkit-details-marker{display:none;}
+  details.group summary .count{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.75rem;
+    color:var(--text-muted);
+    font-weight:400;
+  }
+  details.group summary .plus{
+    font-family:"IBM Plex Mono", monospace;
+    color:var(--accent);
+    font-size:1.1rem;
+    transition:transform .18s ease;
+    margin-left:1rem;
+  }
+  details.group[open] summary .plus{transform:rotate(45deg);}
+
+  .pub-list{display:flex; flex-direction:column; gap:1.1rem; padding-bottom:1.3rem;}
+  .pub-list li{font-size:.93rem; max-width:700px;}
+  .pub-list .pt{font-weight:600;}
+  .pub-list .venue{font-style:italic;}
+  .pub-list .meta{
+    display:block;
+    margin-top:.15rem;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.75rem;
+    color:var(--text-muted);
+  }
+
+  .contact-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.7rem;
+    margin-top:1.4rem;
+  }
+  .contact-grid a{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.6rem 1rem;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:var(--surface);
+    color:var(--text);
+    font-size:.88rem;
+    box-shadow:var(--shadow);
+  }
+  .contact-grid a:hover{border-color:var(--accent); text-decoration:none; color:var(--accent);}
+
+  footer.note{
+    max-width:680px;
+    font-size:.78rem;
+    color:var(--text-muted);
+    border-top:1px solid var(--line);
+    padding-top:1.2rem;
+  }
+
+  @media (max-width:820px){
+    .page{flex-direction:column;}
+    .sidebar{
+      position:relative;
+      width:100%;
+      flex:none;
+      min-height:0;
+      flex-direction:row;
+      align-items:center;
+      justify-content:space-between;
+      padding:1.1rem 1.25rem;
+      gap:1rem;
+    }
+    .avatar{width:44px; height:44px; font-size:.95rem;}
+    .id{text-align:left; flex-direction:row; align-items:center; gap:.7rem;}
+    .id h1{font-size:1rem;}
+    .id .role{display:none;}
+    nav.sidenav ul{flex-direction:row; gap:.2rem;}
+    nav.sidenav a{font-size:.68rem; padding:.4rem .5rem;}
+    .sidebar-links{display:none;}
+    main.content{padding:2rem 1.25rem 4rem;}
+    .edu-list li{grid-template-columns:56px 1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <aside class="sidebar">
+    <div class="id">
+      <div class="avatar">JNG</div>
+      <h1>Jonathan Nogueira Gois</h1>
+      <span class="role">Ph.D. Candidate, PPGEET&ndash;UFF<br><strong>Professor</strong>, Electrical Engineering, CEFET-RJ</span>
+    </div>
+
+    <nav class="sidenav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-links">
+      <a href="https://scholar.google.com/citations?user=4WBFLz8AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+      <a href="https://www.cefet-rj.br/index.php/english-version" target="_blank" rel="noopener">CEFET-RJ ↗</a>
+      <a href="https://www.ppgeet.uff.br/" target="_blank" rel="noopener">PPGEET&ndash;UFF ↗</a>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <section id="home">
+      <header class="hero">
+        <span class="kicker">Wireless Systems &amp; Signal Processing</span>
+        <h2>Jonathan Nogueira Gois</h2>
+        <div class="affil">
+          <a href="https://www.ppgeet.uff.br/" target="_blank" rel="noopener">Graduate Program in Electrical and Telecommunications Engineering (PPGEET), Universidade Federal Fluminense (UFF)</a>
+          <a href="https://www.cefet-rj.br/index.php/english-version" target="_blank" rel="noopener">Department of Electrical Engineering, CEFET-RJ &ndash; Nova Friburgo</a>
+        </div>
+      </header>
+
+      <div class="bio measure">
+        <p>
+          <strong>Jonathan Nogueira Gois</strong> was born in Rio de Janeiro, Brazil, in 1990.
+          He received his B.Sc. in Electronic and Computer Engineering from the
+          <a href="http://www.poli.ufrj.br" target="_blank" rel="noopener">Escola Polit&eacute;cnica, Universidade Federal do Rio de Janeiro (UFRJ)</a> in 2013,
+          and his M.Sc. in Electrical Engineering from
+          <a href="http://www.coppe.ufrj.br" target="_blank" rel="noopener">COPPE/UFRJ</a> in 2016, working on multiresolution
+          decompositions for infrared&ndash;visible video fusion.
+        </p>
+        <p>
+          He is currently a Professor in the Electrical Engineering program at
+          <a href="https://www.cefet-rj.br/index.php/english-version" target="_blank" rel="noopener">CEFET-RJ</a>, Nova Friburgo campus,
+          and a Ph.D. candidate in the Graduate Program in Electrical and Telecommunications Engineering
+          (<a href="https://www.ppgeet.uff.br/" target="_blank" rel="noopener">PPGEET</a>) at the
+          Universidade Federal Fluminense (UFF).
+        </p>
+        <p>
+          His doctoral research addresses distributed max&ndash;min power allocation and dynamic cooperation
+          clustering for cell-free massive MIMO networks with multiple central processing units, developed
+          within the <strong>Brasil 6G</strong> initiative. Earlier work includes machine-learning models for
+          short-range optical fiber links (SI-POF/OFDM), antenna selection for massive MIMO, and
+          computer-vision methods for infrared&ndash;visible video fusion and automatic sign-language recognition.
+        </p>
+      </div>
+
+      <ul class="edu-list">
+        <li>
+          <span class="yr">2022&ndash;</span>
+          <span><span class="deg">Ph.D., Electrical and Telecommunications Engineering</span><br>
+          <span class="inst">PPGEET, Universidade Federal Fluminense (UFF), Niter&oacute;i, RJ, Brazil &mdash; in progress.</span></span>
+        </li>
+        <li>
+          <span class="yr">2016</span>
+          <span><span class="deg">M.Sc., Electrical Engineering</span><br>
+          <span class="inst">PEE/COPPE, Universidade Federal do Rio de Janeiro (UFRJ), Rio de Janeiro, RJ, Brazil.</span></span>
+        </li>
+        <li>
+          <span class="yr">2013</span>
+          <span><span class="deg">B.Sc., Electronic and Computer Engineering</span><br>
+          <span class="inst">Escola Polit&eacute;cnica, Universidade Federal do Rio de Janeiro (UFRJ), Rio de Janeiro, RJ, Brazil.</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="research">
+      <h3 class="section-title">Research</h3>
+
+      <ul class="areas">
+        <li>Cell-Free Massive MIMO &amp; Multi-CPU Networks</li>
+        <li>Distributed Resource Allocation</li>
+        <li>Optical Wireless Communications (SI-POF / OFDM)</li>
+        <li>Machine Learning for Communications</li>
+        <li>Antenna Selection for Massive MIMO</li>
+        <li>Signal &amp; Image Processing</li>
+      </ul>
+
+      <ul class="projects">
+        <li>
+          <span class="p-title">Brasil 6G &mdash; Distributed Power Allocation for Cell-Free Massive MIMO Multi-CPU Networks</span>
+          <span class="p-desc">Fixed-point power balancing (DFPB) and dynamic cooperation clustering across cooperating CPUs, benchmarked against centralized max&ndash;min and prior distributed baselines.</span>
+        </li>
+        <li>
+          <span class="p-title">Machine Learning for SI-POF Optical Links</span>
+          <span class="p-desc">Data-driven models (gradient boosting, DMT/OFDM signal characterization) for step-index polymer optical fiber transmission, with UFF.</span>
+        </li>
+        <li>
+          <span class="p-title">Antenna Selection &amp; Power Allocation for Massive MIMO</span>
+          <span class="p-desc">Low-complexity matching-pursuit algorithms for antenna subset selection under sum-rate and channel-hardening objectives.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h3 class="section-title">Publications</h3>
+
+      <details class="group" open>
+        <summary>Journal Papers <span class="count">8</span><span class="plus">+</span></summary>
+        <ul class="pub-list">
+          <li>
+            <span class="pt">Gois, J. N., Passos, W. L., Da Silva, M. W. R., De Rezende, J. F., Barbosa, V. C.</span>,
+            &ldquo;Unsupervised Dynamic Cooperation Clustering in Cell-Free Massive MIMO with Multiple CPUs&rdquo;,
+            <span class="venue">IEEE Wireless Communications Letters</span>, 2026.
+          </li>
+          <li>
+            <span class="pt">Gois, J. N., Sampaio, F. A. N., Haddad, D. B., Neto, L. A., Silva, V. N. H., Ferreira, T. N.</span>,
+            &ldquo;Modeling of Data Transmission in Polymer Optical Fibers Using DMT and Machine Learning Techniques&rdquo;,
+            <span class="venue">Microwave and Optical Technology Letters</span>, vol. 67, no. 1, e70109, 2025.
+          </li>
+          <li>
+            <span class="pt">Gois, J. N., Silva, M., Silva, V., Ferreira, T.</span>,
+            &ldquo;Sum-Rate Maximization in Massive MIMO with Joint Antenna Selection and Power Allocation&rdquo;,
+            <span class="venue">Learning &amp; Nonlinear Models</span>, vol. 23, no. 1, pp. 4&ndash;18, 2025.
+          </li>
+          <li>
+            <span class="pt">Zebendo, N. H. C., Gois, J. N., Gonzalez, D. R. G., Passos, W. L., Ara&uacute;jo, G. M., de Lima, A. A.</span>,
+            &ldquo;The Usage of Stabilometric Information to Automatically Predict Balance Evaluation Scores&rdquo;,
+            <span class="venue">Learning &amp; Nonlinear Models</span>, vol. 23, no. 2, September 2025.
+          </li>
+          <li>
+            <span class="pt">Passos, W. L., Ara&uacute;jo, G. M., Gois, J. N., de Lima, A. A.</span>,
+            &ldquo;A Gait Energy Image-Based System for Brazilian Sign Language Recognition&rdquo;,
+            <span class="venue">IEEE Transactions on Circuits and Systems I: Regular Papers</span>, vol. 68, no. 11, pp. 4761&ndash;4771, November 2021.
+          </li>
+          <li>
+            <span class="pt">Ellmauthaler, A., Pagliari, C. L., da Silva, E. A. B., Gois, J. N., Neves, S. R.</span>,
+            &ldquo;A Visible-Light and Infrared Video Database for Performance Evaluation of Video/Image Fusion Methods&rdquo;,
+            <span class="venue">Multidimensional Systems and Signal Processing</span>, vol. 30, no. 1, pp. 119&ndash;143, 2019.
+          </li>
+          <li>
+            <span class="pt">Ribeiro, F. M. L., de Oliveira, J. F. L., Ciancio, A. G., da Silva, E. A. B., Estrada, C. R. D., et al.</span>,
+            &ldquo;Quality of Experience in a Stereoscopic Multiview Environment&rdquo;,
+            <span class="venue">IEEE Transactions on Multimedia</span>, vol. 20, no. 1, pp. 1&ndash;14, 2017.
+          </li>
+          <li>
+            <span class="pt">Gussen, C. M. G., Diniz, P. S. R., Campos, M. L. R., Martins, W. A., Costa, F. M., Gois, J. N.</span>,
+            &ldquo;A Survey of Underwater Wireless Communication Technologies&rdquo;,
+            <span class="venue">Journal of Communication and Information Systems</span>, vol. 31, no. 1, pp. 242&ndash;255, 2016.
+          </li>
+        </ul>
+      </details>
+
+      <details class="group">
+        <summary>International Conferences <span class="count">8</span><span class="plus">+</span></summary>
+        <ul class="pub-list">
+          <li>
+            <span class="pt">Gois, J. N., Sampaio, F. A. N., Ferreira, T. N., Silva, V. N. H., Barbero, A. P. L., Neto, L. A.</span>,
+            &ldquo;Extreme Gradient Boost Regression to Model a SI-POF Link Using OFDM Transmission&rdquo;,
+            <span class="venue">International Conference on Optical MEMS and Nanophotonics (OMN)</span>, 2023.
+          </li>
+          <li>
+            <span class="pt">Gois, J. N., Thomaz, J. N., Sampaio, F. A. N., Ferreira, T. N., Barbero, A. P. L., Silva, V. N. H., et al.</span>,
+            &ldquo;Modeling the Bias Current and OFDM Signal Power under Amplitude Constraints for SI-POF&rdquo;,
+            <span class="venue">IEEE Latin-American Conference on Communications (LATINCOM)</span>, 2022.
+          </li>
+          <li>
+            <span class="pt">Brasil, T. A., Gois, J. N., Neto, J. A. M.</span>,
+            &ldquo;Detection of High Impedance Faults in Primary Distribution Grid Using Support Vector Machines Classification&rdquo;,
+            <span class="venue">IEEE International Conference on Industry Applications (INDUSCON)</span>, 2021.
+          </li>
+          <li>
+            <span class="pt">Passos, W. L., Ara&uacute;jo, G. M., Gois, J. N., Lima, A. A.</span>,
+            &ldquo;A Brazilian Sign Language Gesture Recognizing System Using Gait Energy Image&rdquo;,
+            <span class="venue">IEEE Latin America Symposium on Circuits and Systems (LASCAS)</span>, Arequipa, Peru, February 2021.
+          </li>
+          <li>
+            <span class="pt">Gameiro, P. V., Passos, W. L., Ara&uacute;jo, G. M., Lima, A. A., Gois, J. N., Corbo, A. R.</span>,
+            &ldquo;A Brazilian Sign Language Video Database for Automatic Recognition&rdquo;,
+            <span class="venue">Latin American Robotics Symposium (LARS)</span>, Natal, Brazil, November 2020.
+          </li>
+          <li>
+            <span class="pt">Gois, J. N., da Silva, E. A. B., Pagliari, C. L., Perez, M. M.</span>,
+            &ldquo;Fusion of Infrared and Visible-Light Videos Using Motion-Compensated Temporal Sub-Band Decompositions&rdquo;,
+            <span class="venue">IEEE Winter Conference on Applications of Computer Vision (WACV)</span>, pp. 93&ndash;101, 2018.
+          </li>
+          <li>
+            <span class="pt">Santos, I. H. F., Machado, M. M., Russo, E. E., Manguinho, D. M., Almeida, V. T., et al.</span>,
+            &ldquo;Big Data Analytics for Predictive Maintenance Modeling: Challenges and Opportunities&rdquo;,
+            <span class="venue">Offshore Technology Conference Brasil</span>, 2015.
+          </li>
+          <li>
+            <span class="pt">Ellmauthaler, A., da Silva, E. A. B., Pagliari, C. L., Gois, J. N., Neves, S. R.</span>,
+            &ldquo;A Novel Iterative Calibration Approach for Thermal Infrared Cameras&rdquo;,
+            <span class="venue">IEEE International Conference on Image Processing (ICIP)</span>, 2013.
+          </li>
+        </ul>
+      </details>
+
+      <details class="group">
+        <summary>National Conferences <span class="count">9</span><span class="plus">+</span></summary>
+        <ul class="pub-list">
+          <li>
+            <span class="pt">Machado, M. S., Santos, G. F. G., Passos, W. L., Gois, J. N., Gouv&ecirc;a, J. A., Zachi, A. R. L.</span>,
+            &ldquo;Controle de Orienta&ccedil;&atilde;o Pan-Tilt de um Ponteiro Laser para Rastreamento de Objetos M&oacute;veis por Vis&atilde;o Computacional&rdquo;,
+            <span class="venue">XVII Simp&oacute;sio Brasileiro de Automa&ccedil;&atilde;o Inteligente (SBAI)</span>, S&atilde;o Jo&atilde;o del-Rei, MG, Brasil, Agosto 2025.
+          </li>
+          <li>
+            <span class="pt">Silva, M. S. P., Silva, V. N. H., Gois, J. N., Ferreira, T. N.</span>,
+            &ldquo;An&aacute;lise de Endurecimento do Canal e Propaga&ccedil;&atilde;o Favor&aacute;vel em Sistemas MIMO Massivo&rdquo;,
+            <span class="venue">Congresso Brasileiro de Autom&aacute;tica (CBA)</span>, vol. 4, no. 1, 2024.
+          </li>
+          <li>
+            <span class="pt">Zebendo, N. H. C., Gois, J. N., Gonzalez, D. R. G., Passos, W. L., Ara&uacute;jo, G. M., de Lima, A. A.</span>,
+            &ldquo;Predi&ccedil;&atilde;o Autom&aacute;tica de Escala de Avalia&ccedil;&atilde;o de Equil&iacute;brio Utilizando Estabilometria&rdquo;,
+            <span class="venue">XLII Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es e Processamento de Sinais (SBrT)</span>, Bel&eacute;m, PA, Brasil, Outubro 2024.
+          </li>
+          <li>
+            <span class="pt">Gois, J. N., Silva, V. N. H., Ferreira, T.</span>,
+            &ldquo;Low Complexity Algorithm for Antenna Selection Using Hierarchical Matching Pursuit&rdquo;,
+            <span class="venue">XLI Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es e Processamento de Sinais (SBrT)</span>, 2023.
+          </li>
+          <li>
+            <span class="pt">Souza, B. A. V., Ara&uacute;jo, G. S. R., Gois, J. N., Brasil, T. A.</span>,
+            &ldquo;Detec&ccedil;&atilde;o de Faltas de Alta Imped&acirc;ncia Baseada em Boosting de &Aacute;rvores de Decis&atilde;o&rdquo;,
+            <span class="venue">Simp&oacute;sio Brasileiro de Sistemas El&eacute;tricos (SBSE)</span>, vol. 2, no. 1, 2022.
+          </li>
+          <li>
+            <span class="pt">Stefano, G. dos S. L., Passos, W. L., Gois, J. N., Ara&uacute;jo, G. M., de Lima, A. A.</span>,
+            &ldquo;Um Sistema de Reconhecimento de Sinais em Libras Usando CNN e LSTM&rdquo;,
+            <span class="venue">XXXIX Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es e Processamento de Sinais (SBrT)</span>, Online, Brasil, Setembro 2021.
+          </li>
+          <li>
+            <span class="pt">Gois, J. N., Ferreira, T.</span>,
+            &ldquo;Low-Complexity Algorithm for Full-Array Antenna Selection Based on Matching Pursuit&rdquo;,
+            <span class="venue">Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es e Processamento de Sinais (SBrT)</span>, 2021.
+          </li>
+          <li>
+            <span class="pt">Ara&uacute;jo, G. S. R., Brasil, T. A., Souza, B. A. V., Gois, J. N., Neto, J. A. M.</span>,
+            &ldquo;An&aacute;lise e Detec&ccedil;&atilde;o de Faltas de Alta Imped&acirc;ncia em Sistemas de Distribui&ccedil;&atilde;o com a Utiliza&ccedil;&atilde;o de Classificadores por Aprendizado Supervisionado&rdquo;,
+            <span class="venue">XV Simp&oacute;sio Brasileiro de Automa&ccedil;&atilde;o Inteligente (SBAI)</span>, 2021.
+          </li>
+          <li>
+            <span class="pt">Ellmauthaler, A., da Silva, E. A. B., Pagliari, C. L., Gois, J. N.</span>,
+            &ldquo;A Robust Temporal Alignment Technique for Infrared and Visible-Light Video Sequences&rdquo;,
+            <span class="venue">XXXI Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es (SBrT)</span>, 2013.
+          </li>
+        </ul>
+      </details>
+
+      <details class="group">
+        <summary>Theses &amp; Dissertations <span class="count">2</span><span class="plus">+</span></summary>
+        <ul class="pub-list">
+          <li>
+            <span class="pt">Gois, J. N.</span>,
+            &ldquo;Fus&atilde;o de V&iacute;deos Utilizando Decomposi&ccedil;&otilde;es Multirresolu&ccedil;&atilde;o Espa&ccedil;o-Temporais&rdquo;,
+            M.Sc. Dissertation, <span class="venue">PEE/COPPE, Universidade Federal do Rio de Janeiro (UFRJ)</span>, 2016.
+          </li>
+          <li>
+            <span class="pt">Gois, J. N.</span>,
+            &ldquo;Gera&ccedil;&atilde;o de um Banco de Imagens e V&iacute;deos Infravermelhos e Vis&iacute;veis&rdquo;,
+            B.Sc. Final Project, <span class="venue">Escola Polit&eacute;cnica, Universidade Federal do Rio de Janeiro (UFRJ)</span>, 2013.
+          </li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="contact">
+      <h3 class="section-title">Contact</h3>
+      <div class="contact-grid">
+        <a href="mailto:jonathan.gois@cefet-rj.br">jonathan.gois@cefet-rj.br</a>
+        <a href="https://scholar.google.com/citations?user=4WBFLz8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.cefet-rj.br/index.php/english-version" target="_blank" rel="noopener">CEFET-RJ</a>
+        <a href="https://www.ppgeet.uff.br/" target="_blank" rel="noopener">PPGEET&ndash;UFF</a>
+      </div>
+      <footer class="note">
+        Page structure inspired by academic homepages in the Brasil 6G research group. Content assembled from public records (Google Scholar, institutional pages) &mdash; please flag anything to correct.
+      </footer>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
