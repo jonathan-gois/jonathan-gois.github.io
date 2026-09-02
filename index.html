@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jonathan Nogueira Gois</title>
-<meta name="description" content="Jonathan Nogueira Gois — Ph.D. candidate (PPGEET/UFF) and professor at CEFET-RJ, working on cell-free massive MIMO for Brasil 6G.">
+<meta name="description" content="Jonathan Nogueira Gois — Ph.D., professor at CEFET-RJ and postdoctoral researcher at UFRJ, working on cell-free massive MIMO for Brasil 6G.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%A1%3C/text%3E%3C/svg%3E">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
@@ -102,16 +102,9 @@
     height:104px;
     border-radius:50%;
     margin:0 auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:"Fraunces", serif;
-    font-size:1.9rem;
-    font-weight:500;
-    color:var(--sidebar-bg);
-    background:
-      repeating-linear-gradient(115deg, var(--accent) 0 2px, #f0b384 2px 4px);
-    box-shadow:0 0 0 3px rgba(255,255,255,.12), 0 8px 24px rgba(0,0,0,.35);
+    display:block;
+    object-fit:cover;
+    box-shadow:0 0 0 3px rgba(255,255,255,.14), 0 8px 24px rgba(0,0,0,.35);
   }
   .id{
     text-align:center;
@@ -195,6 +188,17 @@
 
   .bio p{margin:0 0 1.05em; max-width:680px;}
   .bio p:last-child{margin-bottom:0;}
+
+  .award{
+    max-width:680px;
+    margin-top:1.4rem;
+    padding:.7rem 1rem;
+    border-left:2px solid var(--accent);
+    background:var(--accent-soft);
+    border-radius:0 8px 8px 0;
+    font-size:.87rem;
+  }
+  .award strong{font-weight:600;}
 
   .edu-list{display:flex; flex-direction:column; gap:.9rem; margin:1.5rem 0 0; max-width:680px;}
   .edu-list li{
@@ -334,7 +338,7 @@
       padding:1.1rem 1.25rem;
       gap:1rem;
     }
-    .avatar{width:44px; height:44px; font-size:.95rem;}
+    .avatar{width:44px; height:44px;}
     .id{text-align:left; flex-direction:row; align-items:center; gap:.7rem;}
     .id h1{font-size:1rem;}
     .id .role{display:none;}
@@ -355,9 +359,9 @@
 <div class="page">
   <aside class="sidebar">
     <div class="id">
-      <div class="avatar">JNG</div>
+      <img class="avatar" src="photo.jpg" alt="Jonathan Nogueira Gois">
       <h1>Jonathan Nogueira Gois</h1>
-      <span class="role">Ph.D. Candidate, PPGEET&ndash;UFF<br><strong>Professor</strong>, Electrical Engineering, CEFET-RJ</span>
+      <span class="role">Ph.D. &mdash; PPGEET/UFF<br><strong>Professor</strong>, CEFET-RJ<br>Postdoctoral Researcher, UFRJ</span>
     </div>
 
     <nav class="sidenav">
@@ -370,9 +374,10 @@
     </nav>
 
     <div class="sidebar-links">
+      <a href="http://lattes.cnpq.br/9816702523088706" target="_blank" rel="noopener">Lattes CV ↗</a>
       <a href="https://scholar.google.com/citations?user=4WBFLz8AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+      <a href="https://orcid.org/0000-0002-2859-7668" target="_blank" rel="noopener">ORCID ↗</a>
       <a href="https://www.cefet-rj.br/index.php/english-version" target="_blank" rel="noopener">CEFET-RJ ↗</a>
-      <a href="https://www.ppgeet.uff.br/" target="_blank" rel="noopener">PPGEET&ndash;UFF ↗</a>
     </div>
   </aside>
 
@@ -380,49 +385,53 @@
 
     <section id="home">
       <header class="hero">
-        <span class="kicker">Wireless Systems &amp; Signal Processing</span>
+        <span class="kicker">Telecommunications, Signal Processing &amp; Machine Learning</span>
         <h2>Jonathan Nogueira Gois</h2>
         <div class="affil">
-          <a href="https://www.ppgeet.uff.br/" target="_blank" rel="noopener">Graduate Program in Electrical and Telecommunications Engineering (PPGEET), Universidade Federal Fluminense (UFF)</a>
-          <a href="https://www.cefet-rj.br/index.php/english-version" target="_blank" rel="noopener">Department of Electrical Engineering, CEFET-RJ &ndash; Nova Friburgo</a>
+          <a href="https://www.cefet-rj.br/index.php/english-version" target="_blank" rel="noopener">Control and Automation Engineering, CEFET-RJ &ndash; Nova Igua&ccedil;u</a>
+          <a href="http://www.ufrj.br" target="_blank" rel="noopener">Postdoctoral Researcher, Universidade Federal do Rio de Janeiro (UFRJ)</a>
         </div>
       </header>
 
       <div class="bio measure">
         <p>
           <strong>Jonathan Nogueira Gois</strong> was born in Rio de Janeiro, Brazil, in 1990.
-          He received his B.Sc. in Electronic and Computer Engineering from the
-          <a href="http://www.poli.ufrj.br" target="_blank" rel="noopener">Escola Polit&eacute;cnica, Universidade Federal do Rio de Janeiro (UFRJ)</a> in 2013,
-          and his M.Sc. in Electrical Engineering from
-          <a href="http://www.coppe.ufrj.br" target="_blank" rel="noopener">COPPE/UFRJ</a> in 2016, working on multiresolution
-          decompositions for infrared&ndash;visible video fusion.
-        </p>
-        <p>
-          He is currently a Professor in the Electrical Engineering program at
-          <a href="https://www.cefet-rj.br/index.php/english-version" target="_blank" rel="noopener">CEFET-RJ</a>, Nova Friburgo campus,
-          and a Ph.D. candidate in the Graduate Program in Electrical and Telecommunications Engineering
+          He graduated in Electronic and Computer Engineering from the
+          <a href="http://www.poli.ufrj.br" target="_blank" rel="noopener">Universidade Federal do Rio de Janeiro (UFRJ)</a> in 2013,
+          and received his M.Sc. in Electrical Engineering in 2016 from the Electrical Engineering Program (PEE)
+          of <a href="http://www.coppe.ufrj.br" target="_blank" rel="noopener">COPPE/UFRJ</a>, working on multiresolution
+          decompositions for infrared&ndash;visible video fusion. He earned his Ph.D. in 2025 from the Graduate
+          Program in Electrical and Telecommunications Engineering
           (<a href="https://www.ppgeet.uff.br/" target="_blank" rel="noopener">PPGEET</a>) at the
-          Universidade Federal Fluminense (UFF).
+          Universidade Federal Fluminense (UFF), with a dissertation on machine learning applied to mobile and
+          optical communication systems.
         </p>
         <p>
-          His doctoral research addresses distributed max&ndash;min power allocation and dynamic cooperation
+          Since 2016 he has been a Professor (dedicação exclusiva) in the Control and Automation Engineering
+          program at <a href="https://www.cefet-rj.br/index.php/english-version" target="_blank" rel="noopener">CEFET-RJ</a>,
+          Nova Igua&ccedil;u campus, and since 2025 he has also been a postdoctoral researcher in Telecommunications
+          and Signal Processing at UFRJ.
+        </p>
+        <p>
+          His current research addresses distributed max&ndash;min power allocation and dynamic cooperation
           clustering for cell-free massive MIMO networks with multiple central processing units, developed
-          within the <strong>Brasil 6G</strong> initiative. Earlier work includes machine-learning models for
-          short-range optical fiber links (SI-POF/OFDM), antenna selection for massive MIMO, and
-          computer-vision methods for infrared&ndash;visible video fusion and automatic sign-language recognition.
+          within the <strong>Brasil 6G</strong> initiative, and he coordinates a FAPERJ project on microwave-photonic
+          hybrid access networks. Earlier work includes machine-learning models for short-range optical fiber
+          links (SI-POF/OFDM), antenna selection for massive MIMO, and computer-vision methods for
+          infrared&ndash;visible video fusion and automatic sign-language recognition.
         </p>
       </div>
 
       <ul class="edu-list">
         <li>
-          <span class="yr">2022&ndash;</span>
-          <span><span class="deg">Ph.D., Electrical and Telecommunications Engineering</span><br>
-          <span class="inst">PPGEET, Universidade Federal Fluminense (UFF), Niter&oacute;i, RJ, Brazil &mdash; in progress.</span></span>
+          <span class="yr">2025</span>
+          <span><span class="deg">Ph.D., Electrical and Telecommunications Engineering (Communication Systems)</span><br>
+          <span class="inst">PPGEET, Universidade Federal Fluminense (UFF), Niter&oacute;i, RJ, Brazil. Advisor: Tadeu Nagashima Ferreira. Co-advisor: Vin&iacute;cius Nunes Henrique Silva.</span></span>
         </li>
         <li>
           <span class="yr">2016</span>
           <span><span class="deg">M.Sc., Electrical Engineering</span><br>
-          <span class="inst">PEE/COPPE, Universidade Federal do Rio de Janeiro (UFRJ), Rio de Janeiro, RJ, Brazil.</span></span>
+          <span class="inst">PEE/COPPE, Universidade Federal do Rio de Janeiro (UFRJ), Rio de Janeiro, RJ, Brazil. Advisor: Eduardo A. B. da Silva. Co-advisor: Carla Liberal Pagliari.</span></span>
         </li>
         <li>
           <span class="yr">2013</span>
@@ -430,6 +439,10 @@
           <span class="inst">Escola Polit&eacute;cnica, Universidade Federal do Rio de Janeiro (UFRJ), Rio de Janeiro, RJ, Brazil.</span></span>
         </li>
       </ul>
+
+      <div class="award">
+        <strong>3rd Place, Best 2025 Dissertations/Theses</strong> &mdash; PPGEET, Universidade Federal Fluminense (UFF), 2026.
+      </div>
     </section>
 
     <section id="research">
@@ -438,7 +451,7 @@
       <ul class="areas">
         <li>Cell-Free Massive MIMO &amp; Multi-CPU Networks</li>
         <li>Distributed Resource Allocation</li>
-        <li>Optical Wireless Communications (SI-POF / OFDM)</li>
+        <li>Microwave Photonics &amp; Hybrid Optical-Wireless Access</li>
         <li>Machine Learning for Communications</li>
         <li>Antenna Selection for Massive MIMO</li>
         <li>Signal &amp; Image Processing</li>
@@ -450,8 +463,16 @@
           <span class="p-desc">Fixed-point power balancing (DFPB) and dynamic cooperation clustering across cooperating CPUs, benchmarked against centralized max&ndash;min and prior distributed baselines.</span>
         </li>
         <li>
+          <span class="p-title">FAPERJ MWP-NET &mdash; Microwave Photonics for Next-Generation Access Networks <span class="mono" style="font-size:.78rem; color:var(--text-muted); font-style:normal;">(Coordinator)</span></span>
+          <span class="p-desc">Hybrid WDM-FTTx and 5G/6G wireless access, joint optical&ndash;RF frequency conversion, and atmospheric spectroscopic sensing over the same photonic front end.</span>
+        </li>
+        <li>
+          <span class="p-title">CNPq Universal &mdash; Statistical Learning for Telecommunications</span>
+          <span class="p-desc">Statistical and machine learning methods applied to enable next-generation mobile communications, with T. N. Ferreira (coordinator).</span>
+        </li>
+        <li>
           <span class="p-title">Machine Learning for SI-POF Optical Links</span>
-          <span class="p-desc">Data-driven models (gradient boosting, DMT/OFDM signal characterization) for step-index polymer optical fiber transmission, with UFF.</span>
+          <span class="p-desc">Data-driven models (gradient boosting, DMT/OFDM signal characterization) for step-index polymer optical fiber transmission &mdash; doctoral research at UFF.</span>
         </li>
         <li>
           <span class="p-title">Antenna Selection &amp; Power Allocation for Massive MIMO</span>
@@ -464,7 +485,7 @@
       <h3 class="section-title">Publications</h3>
 
       <details class="group" open>
-        <summary>Journal Papers <span class="count">8</span><span class="plus">+</span></summary>
+        <summary>Journal Papers <span class="count">10</span><span class="plus">+</span></summary>
         <ul class="pub-list">
           <li>
             <span class="pt">Gois, J. N., Passos, W. L., Da Silva, M. W. R., De Rezende, J. F., Barbosa, V. C.</span>,
@@ -472,19 +493,29 @@
             <span class="venue">IEEE Wireless Communications Letters</span>, 2026.
           </li>
           <li>
+            <span class="pt">Gois, J., Silva, M., Silva, V., Ferreira, T.</span>,
+            &ldquo;Sum-Rate Maximization in Massive MIMO with Joint Antenna Selection and Power Allocation&rdquo;,
+            <span class="venue">Learning and Nonlinear Models</span>, vol. 23, pp. 4&ndash;18, 2025.
+          </li>
+          <li>
             <span class="pt">Gois, J. N., Sampaio, F. A. N., Haddad, D. B., Neto, L. A., Silva, V. N. H., Ferreira, T. N.</span>,
             &ldquo;Modeling of Data Transmission in Polymer Optical Fibers Using DMT and Machine Learning Techniques&rdquo;,
             <span class="venue">Microwave and Optical Technology Letters</span>, vol. 67, no. 1, e70109, 2025.
           </li>
           <li>
-            <span class="pt">Gois, J. N., Silva, M., Silva, V., Ferreira, T.</span>,
-            &ldquo;Sum-Rate Maximization in Massive MIMO with Joint Antenna Selection and Power Allocation&rdquo;,
-            <span class="venue">Learning &amp; Nonlinear Models</span>, vol. 23, no. 1, pp. 4&ndash;18, 2025.
-          </li>
-          <li>
             <span class="pt">Zebendo, N. H. C., Gois, J. N., Gonzalez, D. R. G., Passos, W. L., Ara&uacute;jo, G. M., de Lima, A. A.</span>,
             &ldquo;The Usage of Stabilometric Information to Automatically Predict Balance Evaluation Scores&rdquo;,
-            <span class="venue">Learning &amp; Nonlinear Models</span>, vol. 23, no. 2, September 2025.
+            <span class="venue">Learning and Nonlinear Models</span>, vol. 23, no. 2, pp. 4&ndash;10, September 2025.
+          </li>
+          <li>
+            <span class="pt">Silveira, K. C., Hille, T., Gago, M. M., Teixeira, J. S., Leite, G. A., Gois, J. N., Silva Neto, A. J.</span>,
+            &ldquo;Structural Optimization of PNIPAM-Derived Thermoresponsive Polymers: A Computational Approach Employing Artificial Neural Networks and Genetic Algorithms&rdquo;,
+            <span class="venue">Ci&ecirc;ncia e Natura</span>, vol. 46, e87076, 2024.
+          </li>
+          <li>
+            <span class="pt">Silveira, K. C., Siqueira, M. H. S., Gama, J. M. R., Gois, J. N., Toledo, C. F. M., Silva Neto, A. J.</span>,
+            &ldquo;Compara&ccedil;&atilde;o de Abordagens de Aprendizado de M&aacute;quina na Predi&ccedil;&atilde;o da Viscosidade para Derivados de Poliacrilamida Parcialmente Hidrolisada&rdquo;,
+            <span class="venue">Vetor (FURG)</span>, vol. 5, pp. 1&ndash;12, 2023.
           </li>
           <li>
             <span class="pt">Passos, W. L., Ara&uacute;jo, G. M., Gois, J. N., de Lima, A. A.</span>,
@@ -497,7 +528,7 @@
             <span class="venue">Multidimensional Systems and Signal Processing</span>, vol. 30, no. 1, pp. 119&ndash;143, 2019.
           </li>
           <li>
-            <span class="pt">Ribeiro, F. M. L., de Oliveira, J. F. L., Ciancio, A. G., da Silva, E. A. B., Estrada, C. R. D., et al.</span>,
+            <span class="pt">Ribeiro, F. M. L., de Oliveira, J. F. L., Ciancio, A. G., da Silva, E. A. B., Estrada, C. R. D., Tavares, L. G. C., Gois, J. N., Martelotte, M., Said, A.</span>,
             &ldquo;Quality of Experience in a Stereoscopic Multiview Environment&rdquo;,
             <span class="venue">IEEE Transactions on Multimedia</span>, vol. 20, no. 1, pp. 1&ndash;14, 2017.
           </li>
@@ -510,68 +541,78 @@
       </details>
 
       <details class="group">
-        <summary>International Conferences <span class="count">8</span><span class="plus">+</span></summary>
+        <summary>International Conferences <span class="count">9</span><span class="plus">+</span></summary>
         <ul class="pub-list">
           <li>
             <span class="pt">Gois, J. N., Sampaio, F. A. N., Ferreira, T. N., Silva, V. N. H., Barbero, A. P. L., Neto, L. A.</span>,
             &ldquo;Extreme Gradient Boost Regression to Model a SI-POF Link Using OFDM Transmission&rdquo;,
-            <span class="venue">International Conference on Optical MEMS and Nanophotonics (OMN)</span>, 2023.
+            <span class="venue">International Conference on Optical MEMS and Nanophotonics (OMN) / SBFoton IOPC</span>, Campinas, Brazil, 2023.
           </li>
           <li>
-            <span class="pt">Gois, J. N., Thomaz, J. N., Sampaio, F. A. N., Ferreira, T. N., Barbero, A. P. L., Silva, V. N. H., et al.</span>,
+            <span class="pt">Gois, J. N., Thomaz, J. N., Sampaio, F. A. N., Ferreira, T. N., Barbero, A. P. L., Silva, V. N. H., Neto, L. A.</span>,
             &ldquo;Modeling the Bias Current and OFDM Signal Power under Amplitude Constraints for SI-POF&rdquo;,
-            <span class="venue">IEEE Latin-American Conference on Communications (LATINCOM)</span>, 2022.
+            <span class="venue">IEEE Latin-American Conference on Communications (LATINCOM)</span>, Rio de Janeiro, Brazil, 2022.
+          </li>
+          <li>
+            <span class="pt">Passos, W. L., Ara&uacute;jo, G. M., Gois, J. N., de Lima, A. A.</span>,
+            &ldquo;A Brazilian Sign Language Gesture Recognizing System Using Gait Energy Image&rdquo;,
+            <span class="venue">IEEE 12th Latin America Symposium on Circuits and Systems (LASCAS)</span>, Arequipa, Peru, 2021.
           </li>
           <li>
             <span class="pt">Brasil, T. A., Gois, J. N., Neto, J. A. M.</span>,
             &ldquo;Detection of High Impedance Faults in Primary Distribution Grid Using Support Vector Machines Classification&rdquo;,
-            <span class="venue">IEEE International Conference on Industry Applications (INDUSCON)</span>, 2021.
+            <span class="venue">IEEE 14th International Conference on Industry Applications (INDUSCON)</span>, S&atilde;o Paulo, Brazil, 2021.
           </li>
           <li>
-            <span class="pt">Passos, W. L., Ara&uacute;jo, G. M., Gois, J. N., Lima, A. A.</span>,
-            &ldquo;A Brazilian Sign Language Gesture Recognizing System Using Gait Energy Image&rdquo;,
-            <span class="venue">IEEE Latin America Symposium on Circuits and Systems (LASCAS)</span>, Arequipa, Peru, February 2021.
-          </li>
-          <li>
-            <span class="pt">Gameiro, P. V., Passos, W. L., Ara&uacute;jo, G. M., Lima, A. A., Gois, J. N., Corbo, A. R.</span>,
+            <span class="pt">Gameiro, P. V., Passos, W. L., Ara&uacute;jo, G. M., de Lima, A. A., Gois, J. N., Corbo, A. R.</span>,
             &ldquo;A Brazilian Sign Language Video Database for Automatic Recognition&rdquo;,
-            <span class="venue">Latin American Robotics Symposium (LARS)</span>, Natal, Brazil, November 2020.
+            <span class="venue">Latin American Robotics Symposium (LARS)</span>, Natal, Brazil, 2020.
           </li>
           <li>
             <span class="pt">Gois, J. N., da Silva, E. A. B., Pagliari, C. L., Perez, M. M.</span>,
             &ldquo;Fusion of Infrared and Visible-Light Videos Using Motion-Compensated Temporal Sub-Band Decompositions&rdquo;,
-            <span class="venue">IEEE Winter Conference on Applications of Computer Vision (WACV)</span>, pp. 93&ndash;101, 2018.
+            <span class="venue">IEEE Winter Conference on Applications of Computer Vision (WACV)</span>, Lake Tahoe, USA, p. 93, 2018.
           </li>
           <li>
-            <span class="pt">Santos, I. H. F., Machado, M. M., Russo, E. E., Manguinho, D. M., Almeida, V. T., et al.</span>,
+            <span class="pt">Santos, I. H. F., Machado, M. M., Russo, E. E., Manguinho, D. M., Almeida, V. T., et al., Gois, J.</span>,
             &ldquo;Big Data Analytics for Predictive Maintenance Modeling: Challenges and Opportunities&rdquo;,
-            <span class="venue">Offshore Technology Conference Brasil</span>, 2015.
+            <span class="venue">Offshore Technology Conference Brasil (OTC Brasil)</span>, Rio de Janeiro, Brazil, 2015.
+          </li>
+          <li>
+            <span class="pt">Ribeiro, F. M. L., Ciancio, A., de Oliveira, J. F. L., da Silva, E. A. B., Tavares, L. G. C., Gois, J. N., Said, A., Lee, B.</span>,
+            &ldquo;Impact of View Angular Density on the User Experience in a Multiview Interactive 3D Environment&rdquo;,
+            <span class="venue">8th International Workshop on Video Processing and Quality Metrics for Consumer Electronics (VPQM)</span>, Chandler, USA, 2014.
           </li>
           <li>
             <span class="pt">Ellmauthaler, A., da Silva, E. A. B., Pagliari, C. L., Gois, J. N., Neves, S. R.</span>,
             &ldquo;A Novel Iterative Calibration Approach for Thermal Infrared Cameras&rdquo;,
-            <span class="venue">IEEE International Conference on Image Processing (ICIP)</span>, 2013.
+            <span class="venue">IEEE International Conference on Image Processing (ICIP)</span>, Melbourne, Australia, p. 2182, 2013.
           </li>
         </ul>
       </details>
 
       <details class="group">
-        <summary>National Conferences <span class="count">9</span><span class="plus">+</span></summary>
+        <summary>National Conferences <span class="count">12</span><span class="plus">+</span></summary>
         <ul class="pub-list">
           <li>
             <span class="pt">Machado, M. S., Santos, G. F. G., Passos, W. L., Gois, J. N., Gouv&ecirc;a, J. A., Zachi, A. R. L.</span>,
             &ldquo;Controle de Orienta&ccedil;&atilde;o Pan-Tilt de um Ponteiro Laser para Rastreamento de Objetos M&oacute;veis por Vis&atilde;o Computacional&rdquo;,
-            <span class="venue">XVII Simp&oacute;sio Brasileiro de Automa&ccedil;&atilde;o Inteligente (SBAI)</span>, S&atilde;o Jo&atilde;o del-Rei, MG, Brasil, Agosto 2025.
+            <span class="venue">XVII Simp&oacute;sio Brasileiro de Automa&ccedil;&atilde;o Inteligente (SBAI) e XI SBSE</span>, S&atilde;o Jo&atilde;o del-Rei, MG, Brasil, 2025.
           </li>
           <li>
-            <span class="pt">Silva, M. S. P., Silva, V. N. H., Gois, J. N., Ferreira, T. N.</span>,
+            <span class="pt">Perdig&atilde;o, M. S., Gois, J. N., Silva, V. N. H., Ferreira, T. N.</span>,
             &ldquo;An&aacute;lise de Endurecimento do Canal e Propaga&ccedil;&atilde;o Favor&aacute;vel em Sistemas MIMO Massivo&rdquo;,
-            <span class="venue">Congresso Brasileiro de Autom&aacute;tica (CBA)</span>, vol. 4, no. 1, 2024.
+            <span class="venue">XXV Congresso Brasileiro de Autom&aacute;tica (CBA)</span>, Rio de Janeiro, Brasil, 2024.
           </li>
           <li>
             <span class="pt">Zebendo, N. H. C., Gois, J. N., Gonzalez, D. R. G., Passos, W. L., Ara&uacute;jo, G. M., de Lima, A. A.</span>,
             &ldquo;Predi&ccedil;&atilde;o Autom&aacute;tica de Escala de Avalia&ccedil;&atilde;o de Equil&iacute;brio Utilizando Estabilometria&rdquo;,
-            <span class="venue">XLII Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es e Processamento de Sinais (SBrT)</span>, Bel&eacute;m, PA, Brasil, Outubro 2024.
+            <span class="venue">XLII Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es e Processamento de Sinais (SBrT)</span>, Bel&eacute;m, PA, Brasil, 2024.
+          </li>
+          <li>
+            <span class="pt">Silveira, K. C., Gois, J. N., Silva Neto, A. J.</span>,
+            &ldquo;Otimiza&ccedil;&atilde;o e Compara&ccedil;&atilde;o de Modelos Preditivos para a Viscosidade de Poliacrilamidas Modificadas Empregando Aprendizado de M&aacute;quina&rdquo;,
+            <span class="venue">XXVII Encontro Nacional de Modelagem Computacional / XV ECTM</span>, 2024.
           </li>
           <li>
             <span class="pt">Gois, J. N., Silva, V. N. H., Ferreira, T.</span>,
@@ -579,36 +620,51 @@
             <span class="venue">XLI Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es e Processamento de Sinais (SBrT)</span>, 2023.
           </li>
           <li>
-            <span class="pt">Souza, B. A. V., Ara&uacute;jo, G. S. R., Gois, J. N., Brasil, T. A.</span>,
-            &ldquo;Detec&ccedil;&atilde;o de Faltas de Alta Imped&acirc;ncia Baseada em Boosting de &Aacute;rvores de Decis&atilde;o&rdquo;,
-            <span class="venue">Simp&oacute;sio Brasileiro de Sistemas El&eacute;tricos (SBSE)</span>, vol. 2, no. 1, 2022.
+            <span class="pt">Silveira, K. C., Hille, T., Gago, M. M., Teixeira, J. S., Leite, G. A., Gois, J. N., Silva Neto, A. J.</span>,
+            &ldquo;Otimiza&ccedil;&atilde;o Estrutural de Pol&iacute;meros Termorresponsivos Derivados de PNIPAM: uma Abordagem Computacional Empregando Redes Neurais Artificiais e Algoritmos Gen&eacute;ticos&rdquo;,
+            <span class="venue">XXVI Encontro Nacional de Modelagem Computacional / XIV ECTM</span>, Nova Friburgo, RJ, Brasil, 2023.
           </li>
           <li>
-            <span class="pt">Stefano, G. dos S. L., Passos, W. L., Gois, J. N., Ara&uacute;jo, G. M., de Lima, A. A.</span>,
-            &ldquo;Um Sistema de Reconhecimento de Sinais em Libras Usando CNN e LSTM&rdquo;,
-            <span class="venue">XXXIX Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es e Processamento de Sinais (SBrT)</span>, Online, Brasil, Setembro 2021.
+            <span class="pt">Souza, B. A. V., Ara&uacute;jo, G. S. R., Gois, J. N., Brasil, T. A.</span>,
+            &ldquo;Detec&ccedil;&atilde;o de Faltas de Alta Imped&acirc;ncia Baseada em Boosting de &Aacute;rvores de Decis&atilde;o&rdquo;,
+            <span class="venue">IX Simp&oacute;sio Brasileiro de Sistemas El&eacute;tricos (SBSE)</span>, Santa Maria, RS, Brasil, 2022.
+          </li>
+          <li>
+            <span class="pt">Silveira, K. C., Siqueira, M. H. S., Gama, J. M. R., Gois, J. N., Toledo, C. F. M., Silva Neto, A. J.</span>,
+            &ldquo;Compara&ccedil;&atilde;o de Abordagens de Aprendizado de M&aacute;quina na Predi&ccedil;&atilde;o da Viscosidade para Derivados de Poliacrilamida Parcialmente Hidrolisada&rdquo;,
+            <span class="venue">XXV Encontro Nacional de Modelagem Computacional (ENMC)</span>, Pelotas, RS, Brasil, 2022.
           </li>
           <li>
             <span class="pt">Gois, J. N., Ferreira, T.</span>,
             &ldquo;Low-Complexity Algorithm for Full-Array Antenna Selection Based on Matching Pursuit&rdquo;,
-            <span class="venue">Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es e Processamento de Sinais (SBrT)</span>, 2021.
+            <span class="venue">XXXIX Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es e Processamento de Sinais (SBrT)</span>, 2021.
           </li>
           <li>
-            <span class="pt">Ara&uacute;jo, G. S. R., Brasil, T. A., Souza, B. A. V., Gois, J. N., Neto, J. A. M.</span>,
+            <span class="pt">Stefano, G., Passos, W. L., Gois, J. N., Ara&uacute;jo, G. M., de Lima, A. A.</span>,
+            &ldquo;Um Sistema de Reconhecimento de Sinais em Libras Usando CNN e LSTM&rdquo;,
+            <span class="venue">XXXIX Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es e Processamento de Sinais (SBrT)</span>, Online, Brasil, Setembro 2021.
+          </li>
+          <li>
+            <span class="pt">Ara&uacute;jo, G. S. R., Brasil, T. A., Souza, B. A. V., Gois, J. N., Moor Neto, J. A.</span>,
             &ldquo;An&aacute;lise e Detec&ccedil;&atilde;o de Faltas de Alta Imped&acirc;ncia em Sistemas de Distribui&ccedil;&atilde;o com a Utiliza&ccedil;&atilde;o de Classificadores por Aprendizado Supervisionado&rdquo;,
-            <span class="venue">XV Simp&oacute;sio Brasileiro de Automa&ccedil;&atilde;o Inteligente (SBAI)</span>, 2021.
+            <span class="venue">Simp&oacute;sio Brasileiro de Automa&ccedil;&atilde;o Inteligente (SBAI)</span>, Online, Brasil, 2021.
           </li>
           <li>
             <span class="pt">Ellmauthaler, A., da Silva, E. A. B., Pagliari, C. L., Gois, J. N.</span>,
             &ldquo;A Robust Temporal Alignment Technique for Infrared and Visible-Light Video Sequences&rdquo;,
-            <span class="venue">XXXI Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es (SBrT)</span>, 2013.
+            <span class="venue">XXXI Simp&oacute;sio Brasileiro de Telecomunica&ccedil;&otilde;es (SBrT)</span>, Fortaleza, CE, Brasil, 2013.
           </li>
         </ul>
       </details>
 
       <details class="group">
-        <summary>Theses &amp; Dissertations <span class="count">2</span><span class="plus">+</span></summary>
+        <summary>Theses &amp; Dissertations <span class="count">3</span><span class="plus">+</span></summary>
         <ul class="pub-list">
+          <li>
+            <span class="pt">Gois, J. N.</span>,
+            &ldquo;Aprendizado de M&aacute;quinas com Aplica&ccedil;&otilde;es em Sistemas de Comunica&ccedil;&otilde;es M&oacute;veis e &Oacute;pticos&rdquo;,
+            Ph.D. Thesis, <span class="venue">PPGEET, Universidade Federal Fluminense (UFF)</span>, 2025.
+          </li>
           <li>
             <span class="pt">Gois, J. N.</span>,
             &ldquo;Fus&atilde;o de V&iacute;deos Utilizando Decomposi&ccedil;&otilde;es Multirresolu&ccedil;&atilde;o Espa&ccedil;o-Temporais&rdquo;,
@@ -627,12 +683,13 @@
       <h3 class="section-title">Contact</h3>
       <div class="contact-grid">
         <a href="mailto:jonathan.gois@cefet-rj.br">jonathan.gois@cefet-rj.br</a>
+        <a href="http://lattes.cnpq.br/9816702523088706" target="_blank" rel="noopener">Lattes CV</a>
         <a href="https://scholar.google.com/citations?user=4WBFLz8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://orcid.org/0000-0002-2859-7668" target="_blank" rel="noopener">ORCID</a>
         <a href="https://www.cefet-rj.br/index.php/english-version" target="_blank" rel="noopener">CEFET-RJ</a>
-        <a href="https://www.ppgeet.uff.br/" target="_blank" rel="noopener">PPGEET&ndash;UFF</a>
       </div>
       <footer class="note">
-        Page structure inspired by academic homepages in the Brasil 6G research group. Content assembled from public records (Google Scholar, institutional pages) &mdash; please flag anything to correct.
+        Content sourced from the author&rsquo;s Lattes CV (updated July 2026), CNPq/CAPES.
       </footer>
     </section>
 
